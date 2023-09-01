@@ -1,6 +1,6 @@
 # .nosana-ci.yml
 global:
-  image: alpine
+  image: nosana/solana
   trigger:
     push:
       branches:
@@ -13,6 +13,7 @@ jobs:
       - mkdir dist
     artifacts:
       - name: dist
+      - name: node_modules
 
   - name: test
     commands:
