@@ -1,0 +1,27 @@
+# .nosana-ci.yml
+global:
+  image: alpine
+  trigger:
+    push:
+      branches:
+        - "*"
+
+jobs:
+  - name: build
+    commands:
+      - echo "building..."
+      - mkdir dist
+    artifacts:
+      - name: dist
+
+  - name: test
+    commands:
+      - echo "testing..."
+    resources:
+      - name: dist
+
+  - name: deploy
+    commands:
+      - echo "deploying..."
+    resources:
+      - name: dist
